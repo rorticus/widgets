@@ -1,3 +1,4 @@
+const path = require('path');
 var tsconfig = require('./tsconfig.json');
 
 module.exports = function (grunt) {
@@ -75,6 +76,66 @@ module.exports = function (grunt) {
 				ignoreCompilerErrors: true // Remove this once compile errors are resolved
 			}
 		}
+	});
+
+	grunt.registerTask('prepare-widget', function() {
+		const config = grunt.config('prepare-widget');
+		const dest = config.destPath;
+		const build = config.buildPath;
+		const widgetName = config.widgetName;
+
+		// rewrite the package.json
+		const currentPackage = grunt.file.readJSON(path.join('package.json'));
+		currentPackage.name = '@dojo/widget-' + widgetName;
+		currentPackage.description = 'Dojo 2 package of the ' + widgetName + ' widget. This package is a subset of the @dojo/widgets package.'
+
+		grunt.file.write(path.join(dest, 'package.json'), JSON.stringify(currentPackage, undefined, 4));
+
+		// create the main.ts file
+		grunt.file.copy(path.join(build, widgetName + '.js'), path.join(dest, 'main.js'));
+	});
+
+	grunt.registerTask('release-widget', function(widgetName) {
+		const temp = 'temp/';
+		const widgetTemp = 'widget-temp/';
+		const dist = grunt.config('copy.staticDefinitionFiles-dist.dest');
+
+		grunt.config.merge({
+			copy: {
+				temp: {expand: true, cwd: dist, src: '**', dest: temp},
+				widget: {
+					expand: true,
+					cwd: temp,
+					src: widgetName + '/**',
+					dest: widgetTemp
+				},
+				common: {
+					expand: true,
+					cwd: temp,
+					src: 'common/**',
+					dest: widgetTemp
+				}
+			},
+			clean: {temp: [temp], widget: [widgetTemp]},
+			'prepare-widget': {
+				widgetName: widgetName,
+				destPath: widgetTemp,
+				buildPath: temp
+			}
+		});
+
+		// build the root task
+		grunt.task.run([
+			'copy:widget',
+			'copy:common',
+			'prepare-widget'
+		]);
+	});
+
+	grunt.task.renameTask('release-publish', 'release-publish-original');
+
+	grunt.registerTask('release-publish', function() {
+		console.log('i would be publishing here...');
 	});
 
 	grunt.registerTask('dev', grunt.config.get('devTasks').concat([
