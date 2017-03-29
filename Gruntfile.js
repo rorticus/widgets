@@ -114,6 +114,7 @@ module.exports = function (grunt) {
 			}));
 		}
 		else {
+			process.exit();
 			grunt.log.ok('npm pack');
 			promises.push(execa.shell('npm pack', {cwd: dest}));
 		}
@@ -168,12 +169,12 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('release-publish', function() {
 		// not only do we publish the initial package, but we want to package each widget as well.
-		grunt.task.run(grunt.file.expand({
+		grunt.task.run(['release-publish-original'].concat(grunt.file.expand({
 			filter: 'isDirectory',
 			cwd: 'src/'
 		}, ['*', '!common']).map(function(widgetName) {
 			return 'release-widget:' + widgetName;
-		}));
+		})));
 	});
 
 	grunt.registerTask('dev', grunt.config.get('devTasks').concat([
