@@ -1,4 +1,5 @@
 const path = require('path');
+const execa = require('execa');
 var tsconfig = require('./tsconfig.json');
 
 module.exports = function (grunt) {
@@ -95,6 +96,31 @@ module.exports = function (grunt) {
 		grunt.file.copy(path.join(build, widgetName + '.js'), path.join(dest, 'main.js'));
 	});
 
+	grunt.registerTask('publish-widget', function() {
+		const done = this.async();
+
+		const config = grunt.config('publish-widget');
+		const dest = config.widgetPath;
+		const dryRun = grunt.option('dry-run');
+		const promises = [];
+
+		const bin = 'npm publish .';
+
+		grunt.log.ok(bin);
+
+		if (!dryRun) {
+			promises.push(execa.shell(bin, {
+				cwd: dest
+			}));
+		}
+		else {
+			grunt.log.ok('npm pack');
+			promises.push(execa.shell('npm pack', {cwd: dest}));
+		}
+
+		return Promise.all(promises).then(done);
+	});
+
 	grunt.registerTask('release-widget', function(widgetName) {
 		const temp = 'temp/';
 		const widgetTemp = 'widget-temp/';
@@ -121,6 +147,10 @@ module.exports = function (grunt) {
 				widgetName: widgetName,
 				destPath: widgetTemp,
 				buildPath: temp
+			},
+			'publish-widget': {
+				widgetName: widgetName,
+				widgetPath: widgetTemp
 			}
 		});
 
@@ -128,14 +158,22 @@ module.exports = function (grunt) {
 		grunt.task.run([
 			'copy:widget',
 			'copy:common',
-			'prepare-widget'
+			'prepare-widget',
+			'publish-widget',
+			'clean:widget'
 		]);
 	});
 
 	grunt.task.renameTask('release-publish', 'release-publish-original');
 
 	grunt.registerTask('release-publish', function() {
-		console.log('i would be publishing here...');
+		// not only do we publish the initial package, but we want to package each widget as well.
+		grunt.task.run(grunt.file.expand({
+			filter: 'isDirectory',
+			cwd: 'src/'
+		}, ['*', '!common']).map(function(widgetName) {
+			return 'release-widget:' + widgetName;
+		}));
 	});
 
 	grunt.registerTask('dev', grunt.config.get('devTasks').concat([
