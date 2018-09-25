@@ -14,6 +14,7 @@ const modules = [
 	'button',
 	'calendar',
 	'checkbox',
+	'chips',
 	'combobox',
 	'dialog',
 	'grid',

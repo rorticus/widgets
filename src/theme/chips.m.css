@@ -1,0 +1,30 @@
+@import '../common/styles/variables.css';
+
+:root {
+	--chip-background-color: #eeeeee;
+	--chip-text-color: #000000;
+	--chip-roundness: 1em;
+}
+
+.root {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.chip {
+	padding: 8px 16px;
+	background-color: var(--chip-background-color);
+	color: var(--chip-text-color);
+	border-radius: var(--chip-roundness);
+	margin-left: 12px;
+}
+
+.selected {
+	background-color: var(--selected-background);
+	color: var(--selected-color);
+}
+
+.chip:first-child {
+	margin-left: 0;
+}
