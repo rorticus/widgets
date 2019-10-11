@@ -30,7 +30,7 @@
 		"sourceMap": true,
 		"strict": true,
 		"target": "es5",
-		"types": [ "intern" ]
+		"types": [ "intern", "jest" ]
 	},
 	"include": [
 		"./src/**/*.ts",
