@@ -33,7 +33,8 @@
     "build": "npm run clean && npm run build:lib && npm run build:lib:legacy && npm run build:ce",
     "clean": "shx rm -rf dist && shx mkdir dist && shx mkdir dist/umd && shx mkdir dist/esm && shx mkdir dist/dev",
     "release": "run-s \"version:update -- {@}\" build version:reset dojo-package \"dojo-release -- {@}\" --",
-    "uploadCoverage": "codecov --file=coverage/coverage.json"
+    "uploadCoverage": "codecov --file=coverage/coverage.json",
+    "test:unit": "node tests/generate-unit-tests.js && dojo test -u"
   },
   "husky": {
     "hooks": {
@@ -46,6 +47,7 @@
   "devDependencies": {
     "@dojo/cli": "^6.0.0",
     "@dojo/cli-build-widget": "^6.0.0",
+    "@dojo/cli-test-intern": "^6.0.1",
     "@dojo/framework": "^6.0.0",
     "@dojo/loader": "^2.0.0",
     "@dojo/scripts": "^4.0.2",
@@ -61,7 +63,7 @@
     "cpx": "1.5.0",
     "cross-spawn": "6.0.5",
     "execa": "^0.9.0",
-    "glob": "7.1.4",
+    "glob": "^7.1.4",
     "husky": "2.2.0",
     "jsdom": "^9.5.0",
     "lint-staged": "8.1.6",

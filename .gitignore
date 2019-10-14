@@ -20,3 +20,4 @@ deploy_key
 deploy_key.pub
 package.json.bk
 /.vscode
+tests/unit

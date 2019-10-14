@@ -1,10 +1,10 @@
 import './util';
-import '../../../accordion-pane/tests/unit/AccordionPane';
-import '../../../button/tests/unit/Button';
+import '../../../accordion-pane/AccordionPane.spec';
+import '../../../button/Button.spec';
 import '../../../outlined-button/tests/unit/OutlinedButton';
-import '../../../calendar/tests/unit/Calendar';
-import '../../../calendar/tests/unit/CalendarCell';
-import '../../../calendar/tests/unit/DatePicker';
+import '../../../calendar/tests/unit/Calendar.spec';
+import '../../../calendar/tests/unit/CalendarCell.spec';
+import '../../../calendar/tests/unit/DatePicker.spec';
 import '../../../card/tests/unit/Card';
 import '../../../checkbox/tests/unit/Checkbox';
 import '../../../combobox/tests/unit/ComboBox';
