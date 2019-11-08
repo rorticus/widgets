@@ -1,6 +1,6 @@
 import { WidgetBase } from '@dojo/framework/core/WidgetBase';
 import { v, w } from '@dojo/framework/core/vdom';
-import Checkbox, { Mode } from '../../checkbox/index';
+import Checkbox from '../../checkbox/index';
 
 export default class App extends WidgetBase {
 	private _checkboxStates: { [key: string]: boolean } = {
@@ -17,7 +17,7 @@ export default class App extends WidgetBase {
 	}
 
 	render() {
-		const { c1 = true, c2 = false, c3 = false, c4 = false, c5 = true } = this._checkboxStates;
+		const { c1 = true, c2 = false, c3 = false } = this._checkboxStates;
 
 		return v('div', [
 			v('h2', {
@@ -56,33 +56,6 @@ export default class App extends WidgetBase {
 						required: true,
 						onValue: (checked) => {
 							this.onChange('c3', checked);
-						}
-					})
-				]),
-
-				v('div', { id: 'example-4' }, [
-					w(Checkbox, {
-						key: 'c4',
-						checked: c4,
-						label: 'Checkbox in "toggle" mode',
-						mode: Mode.toggle,
-						onValue: (checked) => {
-							this.onChange('c4', checked);
-						}
-					})
-				]),
-
-				v('div', { id: 'example-5' }, [
-					w(Checkbox, {
-						key: 'c5',
-						checked: c5,
-						label: 'Disabled toggle mode',
-						onLabel: 'On',
-						offLabel: 'Off',
-						mode: Mode.toggle,
-						disabled: true,
-						onValue: (checked) => {
-							this.onChange('c5', checked);
 						}
 					})
 				])
