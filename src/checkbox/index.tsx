@@ -83,7 +83,7 @@ export const Checkbox = factory(function Checkbox({
 				classes={themeCss.input}
 				checked={checked}
 				disabled={disabled}
-				focus={focus.shouldFocus}
+				focus={focus.shouldFocus()}
 				aria-invalid={valid === false ? 'true' : null}
 				name={name}
 				readonly={readOnly}
@@ -100,6 +100,17 @@ export const Checkbox = factory(function Checkbox({
 				onpointerenter={() => onOver && onOver()}
 				onpointerleave={() => onOut && onOut()}
 			/>
+			<div classes={themeCss.background}>
+				<svg classes={themeCss.checkmark} viewBox="0 0 24 24">
+					<path
+						classes={themeCss.checkmarkPath}
+						fill="none"
+						d="M1.73,12.91 8.1,19.28 22.79,4.59"
+					/>
+				</svg>
+				<div classes={themeCss.mixedMark} />
+			</div>
+			<div classes={themeCss.ripple} />
 		</div>,
 		label && (
 			<Label
