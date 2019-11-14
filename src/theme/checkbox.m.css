@@ -15,8 +15,6 @@
 .background { display: none; }
 .checkmark {}
 .checkmarkPath {}
-.mixedMark {}
-.ripple { display: none; }
 
 /* invalid style */
 .invalid .inputWrapper::before {

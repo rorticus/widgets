@@ -120,9 +120,7 @@ export const Checkbox = factory(function Checkbox({
 							d="M1.73,12.91 8.1,19.28 22.79,4.59"
 						/>
 					</svg>
-					<div classes={themeCss.mixedMark} />
 				</div>
-				<div classes={themeCss.ripple} />
 			</div>
 			{label && (
 				<Label

@@ -70,9 +70,7 @@ const expected = function(label = false, checked = false) {
 							d="M1.73,12.91 8.1,19.28 22.79,4.59"
 						/>
 					</svg>
-					<div classes={css.mixedMark} />
 				</div>
-				<div classes={css.ripple} />
 			</div>
 			{label ? (
 				<Label
@@ -149,9 +147,7 @@ registerSuite('Checkbox', {
 									d="M1.73,12.91 8.1,19.28 22.79,4.59"
 								/>
 							</svg>
-							<div classes={css.mixedMark} />
 						</div>
-						<div classes={css.ripple} />
 					</div>
 				</div>
 			));
@@ -222,9 +218,7 @@ registerSuite('Checkbox', {
 									d="M1.73,12.91 8.1,19.28 22.79,4.59"
 								/>
 							</svg>
-							<div classes={css.mixedMark} />
 						</div>
-						<div classes={css.ripple} />
 					</div>
 				</div>
 			));
@@ -264,9 +258,7 @@ registerSuite('Checkbox', {
 									d="M1.73,12.91 8.1,19.28 22.79,4.59"
 								/>
 							</svg>
-							<div classes={css.mixedMark} />
 						</div>
-						<div classes={css.ripple} />
 					</div>
 				</div>
 			));
@@ -328,9 +320,7 @@ registerSuite('Checkbox', {
 									d="M1.73,12.91 8.1,19.28 22.79,4.59"
 								/>
 							</svg>
-							<div classes={css.mixedMark} />
 						</div>
-						<div classes={css.ripple} />
 					</div>
 					<Label
 						key="label"
@@ -394,9 +384,7 @@ registerSuite('Checkbox', {
 									d="M1.73,12.91 8.1,19.28 22.79,4.59"
 								/>
 							</svg>
-							<div classes={css.mixedMark} />
 						</div>
-						<div classes={css.ripple} />
 					</div>
 				</div>
 			));

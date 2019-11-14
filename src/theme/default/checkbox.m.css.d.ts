@@ -9,7 +9,5 @@ export const required: string;
 export const background: string;
 export const checkmark: string;
 export const checkmarkPath: string;
-export const mixedMark: string;
-export const ripple: string;
 export const invalid: string;
 export const valid: string;
