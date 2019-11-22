@@ -62,15 +62,7 @@ const expected = function(label = false, checked = false) {
 					onpointerenter={noop}
 					onpointerleave={noop}
 				/>
-				<div classes={css.background}>
-					<svg classes={css.checkmark} viewBox="0 0 24 24">
-						<path
-							classes={css.checkmarkPath}
-							fill="none"
-							d="M1.73,12.91 8.1,19.28 22.79,4.59"
-						/>
-					</svg>
-				</div>
+				<div classes={css.background} />
 			</div>
 			{label ? (
 				<Label
@@ -139,15 +131,7 @@ registerSuite('Checkbox', {
 							onpointerenter={noop}
 							onpointerleave={noop}
 						/>
-						<div classes={css.background}>
-							<svg classes={css.checkmark} viewBox="0 0 24 24">
-								<path
-									classes={css.checkmarkPath}
-									fill="none"
-									d="M1.73,12.91 8.1,19.28 22.79,4.59"
-								/>
-							</svg>
-						</div>
+						<div classes={css.background} />
 					</div>
 				</div>
 			));
@@ -210,15 +194,7 @@ registerSuite('Checkbox', {
 							onpointerenter={noop}
 							onpointerleave={noop}
 						/>
-						<div classes={css.background}>
-							<svg classes={css.checkmark} viewBox="0 0 24 24">
-								<path
-									classes={css.checkmarkPath}
-									fill="none"
-									d="M1.73,12.91 8.1,19.28 22.79,4.59"
-								/>
-							</svg>
-						</div>
+						<div classes={css.background} />
 					</div>
 				</div>
 			));
@@ -250,15 +226,7 @@ registerSuite('Checkbox', {
 							onpointerenter={noop}
 							onpointerleave={noop}
 						/>
-						<div classes={css.background}>
-							<svg classes={css.checkmark} viewBox="0 0 24 24">
-								<path
-									classes={css.checkmarkPath}
-									fill="none"
-									d="M1.73,12.91 8.1,19.28 22.79,4.59"
-								/>
-							</svg>
-						</div>
+						<div classes={css.background} />
 					</div>
 				</div>
 			));
@@ -312,15 +280,7 @@ registerSuite('Checkbox', {
 							onpointerenter={noop}
 							onpointerleave={noop}
 						/>
-						<div classes={css.background}>
-							<svg classes={css.checkmark} viewBox="0 0 24 24">
-								<path
-									classes={css.checkmarkPath}
-									fill="none"
-									d="M1.73,12.91 8.1,19.28 22.79,4.59"
-								/>
-							</svg>
-						</div>
+						<div classes={css.background} />
 					</div>
 					<Label
 						key="label"
@@ -376,15 +336,7 @@ registerSuite('Checkbox', {
 							onpointerenter={noop}
 							onpointerleave={noop}
 						/>
-						<div classes={css.background}>
-							<svg classes={css.checkmark} viewBox="0 0 24 24">
-								<path
-									classes={css.checkmarkPath}
-									fill="none"
-									d="M1.73,12.91 8.1,19.28 22.79,4.59"
-								/>
-							</svg>
-						</div>
+						<div classes={css.background} />
 					</div>
 				</div>
 			));

@@ -7,7 +7,5 @@ export const focused: string;
 export const readonly: string;
 export const required: string;
 export const background: string;
-export const checkmark: string;
-export const checkmarkPath: string;
 export const invalid: string;
 export const valid: string;

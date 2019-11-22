@@ -11,10 +11,7 @@
 .focused {}
 .readonly {}
 .required {}
-
-.background { display: none; }
-.checkmark {}
-.checkmarkPath {}
+.background {}
 
 /* invalid style */
 .invalid .inputWrapper::before {
